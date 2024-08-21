@@ -1,0 +1,34 @@
+alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+direction = input("Type 'rncode' to encode and type 'decode' to decode the code : ")
+
+
+
+text = input("Type the text :")
+shift = int(input("Type the shift number :"))
+
+def encrypt(plane_text , shift_amount):
+    print(plane_text,shift_amount)
+    cifer_text = ""  # Make a blank var to store 
+    for letter in plane_text:
+        position = alphabet.index(letter)  # get index of the letter
+        new_position = position + shift_amount # add extra shift
+        new_letter = alphabet[new_position] # put it to the alphabet new value of encypt
+        cifer_text += new_letter  # push the value to new var
+    print(f"This is encoded cifer text  {cifer_text}")
+
+
+def decrypt(cifer_text, shift_amount):
+    plain_text = ""
+    for letter in cifer_text:
+        position = alphabet.index(letter)
+        new_position = position - shift_amount
+        plain_text += alphabet[new_position] 
+    print(f"This is decoded cifer text {plain_text}")
+
+if direction == "encode":
+    encrypt(plain_text = text, shift_amount = shift)
+elif direction == "decode":
+    decrypt(cifer_text = text, shift_amount = shift) 
+
+    
